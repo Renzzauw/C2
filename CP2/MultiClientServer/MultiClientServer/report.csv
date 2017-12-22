@@ -1,0 +1,93 @@
+Onderdeel;Corrects;Attempts;Punten;Max
+std-Opstarten;0;0;0;4
+std-Connect;0;0;0;1
+std-Disconnect;0;0;0;1
+std-Berichten;0;0;0;1
+std-BerichtNaVerandering;0;0;0;0,5
+std-NetwerkPartitie;0;0;0;1
+Opstarten;0;1;0;4
+Connect;0;0;0;1
+Disconnect;0;0;0;1
+Berichten;0;0;0;1
+BerichtNaVerandering;0;0;0;0,5
+NetwerkPartitie;0;0;0;1
+BovenLimiet;0;1;0;1
+Totaal;-;-;0;(van 18)
+
+Let op: deze berekening is niet het definitieve cijfer. Dit is alleen maar een automatisch gegenereerde score voor het testbare gedeelte, en het staat nog niet vast dat we dit bij de beoordeling gebruiken.
+
+------------------------------------
+
+Testcase;Status;Tijd;Omschrijving
+Lijn-netwerk;Error;2,20;Opstarten netwerk
+
+------------------------------------
+
+4;Lijn-netwerk;Error;2,20;Opstarten netwerk
+Test 4 - Lijn-netwerk
+
+Process 55513 gercasht met foutmelding:
+Onverwerkte uitzondering: System.Net.Sockets.SocketException: Elk socketadres (protocol/netwerkadres/poort) kan normaal slechts ‚‚n keer worden gebruikt
+   bij System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   bij System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   bij System.Net.Sockets.TcpListener.Start(Int32 backlog)
+   bij System.Net.Sockets.TcpListener.Start()
+   bij MultiClientServer.Server..ctor(Int32 port) in d:\Users\renzo.DCCOMPUTERS\Desktop\Practicum Concurrency - kopie\CP2\MultiClientServer\MultiClientServer\Server.cs:regel 18
+   bij MultiClientServer.Program.Main(String[] args) in d:\Users\renzo.DCCOMPUTERS\Desktop\Practicum Concurrency - kopie\CP2\MultiClientServer\MultiClientServer\Program.cs:regel 32
+
+Log
+start MultiClientServer.exe 55500 55501
+start MultiClientServer.exe 55501 55500 55502
+start MultiClientServer.exe 55502 55501 55503
+start MultiClientServer.exe 55503 55502 55504
+start MultiClientServer.exe 55504 55503 55505
+start MultiClientServer.exe 55505 55504 55506
+start MultiClientServer.exe 55506 55505 55507
+start MultiClientServer.exe 55507 55506 55508
+start MultiClientServer.exe 55508 55507 55509
+start MultiClientServer.exe 55509 55508 55510
+start MultiClientServer.exe 55510 55509 55511
+start MultiClientServer.exe 55511 55510 55512
+start MultiClientServer.exe 55512 55511 55513
+start MultiClientServer.exe 55513 55512 55514
+start MultiClientServer.exe 55514 55513
+55500 < Verbonden: 55501
+55501 < Afstand naar 55500 is nu 1 via 55500
+55500 < Afstand naar 55501 is nu 1 via 55501
+55501 < Verbonden: 55502
+55502 < Verbonden: 55503
+55501 < Afstand naar 55502 is nu 5 via 55500
+55500 < Afstand naar 55502 is nu 5 via -1
+55502 < Afstand naar 55501 is nu 1 via 55501
+55503 < Afstand naar 55502 is nu 4 via -1
+55503 < Afstand naar 55501 is nu 5 via -1
+55503 < Verbonden: 55504
+55502 < Afstand naar 55503 is nu 1 via 55503
+55501 < Afstand naar 55503 is nu 2 via 55502
+55500 < Afstand naar 55503 is nu 3 via 55501
+
+Process 55500:
+Verbonden: 55501
+Afstand naar 55501 is nu 1 via 55501
+Afstand naar 55502 is nu 5 via -1
+Afstand naar 55503 is nu 3 via 55501
+
+Process 55501:
+Afstand naar 55500 is nu 1 via 55500
+Verbonden: 55502
+Afstand naar 55502 is nu 5 via 55500
+Afstand naar 55503 is nu 2 via 55502
+
+Process 55502:
+Verbonden: 55503
+Afstand naar 55501 is nu 1 via 55501
+Afstand naar 55503 is nu 1 via 55503
+
+Process 55503:
+Afstand naar 55502 is nu 4 via -1
+Afstand naar 55501 is nu 5 via -1
+Verbonden: 55504
+
+Microsoft Windows NT 6.2.9200.0 (x64)
+.NET version: 4.0.30319.42000
+8 physical core(s), 8 virtual core(s) (hyperthreading), 1 processor(s)
